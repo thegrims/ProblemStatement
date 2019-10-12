@@ -1,0 +1,66 @@
+\documentclass[10pt, draftclsnofoot, letterpaper, margin=.75in, onecolumn]{IEEEtran}
+% \IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[singlespacing]{setspace}
+\usepackage{amsmath,amssymb,amsfonts}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{Problem Statement}
+\author{\IEEEauthorblockN{Aidan Grimshaw\\}
+\IEEEauthorblockA{\textit{Fall 2019 CS461: Senior Design\\}
+\textit{Oregon State University}}}
+
+\begin{titlepage}
+\maketitle
+\begin{abstract}
+This document will describe the problem that is currently being solved, the rationale behind why the problem should be solved, the proposed solution, and performance metrics for the project. The problem is simply that the manual measurement process for child is labor intensive and can be improved. The solution is leveraging computer vision to automatically get all needed measurements from a single picture of the child. This will enable parents to get this information quicker, cheaper and in areas where medical providers aren’t easily available.
+\end{abstract}
+
+\end{titlepage}
+
+%\begin{IEEEkeywords}
+%component, formatting, style, styling, insert
+%\end{IEEEkeywords}
+
+\section{Problem Definition}
+\par Currently when a baby is taken to the doctor for routine checkups, part of the checkup process is measuring the child's height and width, as well as several other measurements. This process can be difficult with infants that squirm around and often are not willing to lay still, and is labor intensive.  The process may be able to be done faster and at home by parents if it is done through a computer vision app rather than by hand.\\
+
+\textbf{Cost}
+\par It is often difficult for worried parents to tell whether their baby is developing healthily and normally. This can lead to extra hospital visits which increases healthcare costs for all healthcare consumers. The American Academy of Pediatrics (AAP) recommends babies get checkups at birth, 3 to 5 days after birth and then at 1, 2, 4, 6, 9, 12, 15, 18 and 24 months\cite{checkup}. Cost of these checkups average around 100 dollars per visit\cite{cost}, while the average number of new births each year in the US is around 3.8 million\cite{births}. If only 1 percent of those children can be prevented from making an extra visit to the doctor , this would conservatively save 3.8 million dollars from the healthcare system.\\
+
+\textbf{Early Disease Screening}\\
+This screening would allow parents to check if their baby is far outside the norms in height for their age. In rare cases, this can indicate the following.\\
+\textbf{Congenital hypothyroidism:} 1 in 2,500 to 3,000 babies each year are born with this, translating to 1266 babies every year in the US.\\
+\textbf{Growth hormone deficiency:} 1 in 7,000 babies each year are born with this, translating to 542 babies every year in the US. \\
+Earlier feedback from these diagnoses can lead to better health outcomes for infants.\\
+
+\textbf{Scale}\\
+In rural areas or countries where immediate access to doctors and hospitals is uncommon, this app may benefit parents that would not otherwise have easy access to the checkups that pediatricians provides, allowing them access to medical services that they might not otherwise have.
+
+\section{Proposed Solution}
+\par The team is working on creating an IOS app that measures infants height, width, and possibly other measurements that can be derived from images. These measurements will be compared against WHO and NHS guidelines for healthy metrics at the current age of the child. The data will also be stored and charted against the child’s past data to make sure that they are following a healthy pattern of growth. In order to do this, we will leverage native computer vision APIs that are accessible to IOS developers as part of ARkit. We may also use a database for storing the child measurement data, and an API to be able to share those measurements with the child’s pediatrician, who will do various additional screenings if the child falls outside of the normal range of measurements for it’s age group.\\
+
+
+\section{Performance Metrics}
+\par The team will know it has successfully completed the project if it has completed 3 key metrics for the project, accuracy, usability, and cost. Assuming that we complete these metrics, we will consider the project successfully completed. \\
+
+\textbf{Accuracy}
+\par Because the height of the child is checked against the average percentiles for it’s age, the application does not have to be exact in its measurements. However, any sufficiently large deviation would make the tool less effective at placing the child within the range and possibly lose the trust of parents. Therefore, we will target a deviation below 5 percent between predicted and actual infant measurements.\\
+
+\textbf{Usability}
+\par The application has to enable untrained users to effectively take the measurements and view results. The team may utilize ARkit for creating on screen guidance overlays when an image is being taken, to assist parents in taking the image. The team may also utilize growth charts for the child and comparing it to the mean in its age group and a  progress chart to track changes in the child's height.\\
+
+\textbf{Cost}
+\par In order to enable as many parents and care providers to use the app as possible, it will be provided for free to all end users in the app store.  The code will also be available under open source licencing on Github, to enable developers to expand and improve upon the work that we contributed to the project.\\
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{./problem_statement.bib}
+
+\end{document}
